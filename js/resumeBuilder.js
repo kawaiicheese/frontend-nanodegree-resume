@@ -9,12 +9,12 @@ var bio = {
         "location": "CANADA"
     },
     
-    "picture URL": "http://freefunnydogpictures.com/wp-content/uploads/2014/05/picture_1400053660.jpg",
+    "picture_URL": "http://freefunnydogpictures.com/wp-content/uploads/2014/05/picture_1400053660.jpg",
     "welcomeMessage": "hello moto",
     "skills": [
         "greatness",
         "coder", 
-        "SILVER 2"
+        "NOT BRONZE"
     ]
 };
 
@@ -89,12 +89,42 @@ if (bio.skills.length > 0) {
         $("#skills").append(formattedSkill);
     }
 }
-
+function urMOM() {
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.phone);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    var formattedContactGeneric = HTMLcontactGeneric.replace("%data%", formattedMobile + formattedEmail + formattedGithub + formattedLocation);
+   
+    var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+    var formattedbioPic = HTMLbioPic.replace("%data%", bio.picture_URL);
+    
+    $("#header").prepend(formattedName + formattedRole);
+    $("#topContacts").append(formattedContactGeneric);
+    $("#header").append(formattedWelcomeMsg);
+    $("#header").append(formattedbioPic);
+    
+    if (bio.skills.length > 0) {
+    
+    $("#header").append(HTMLskillsStart);
+       
+        for (x = 0; x < bio.skills.length; x++) {
+            var formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
+            $("#skills").append(formattedSkill);
+        }
+        
+    }
+    
+    $("#footerContacts").append(formattedContactGeneric);
+}
 function displayWork() {
     for (job in work.jobs) {
         $("$workExperience").append(HTMLworkStart);
 
-        var formattedEmployer = HTMLworkEmployer.replace("%data", work.jobs[job].employer);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
         var formattedDates = HTMLworkDates.replace("%data", work.jobs[job].dates);
         var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
@@ -120,12 +150,12 @@ $(document).click(function(loc) {
 function inName(name) {
     name = name.trim().split(" ");
     console.log(name);
-    name[-1] = name[-1].toUpperCase();
+    name[name.length-1] = name[name.length-1].toUpperCase();
     name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
     
     
     return name[0] + " " + name[1];
 }
 
-inName();
+console.log(inName(bio.name));
         
