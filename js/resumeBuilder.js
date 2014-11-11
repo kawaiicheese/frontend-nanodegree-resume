@@ -54,8 +54,7 @@ var work = {
             "title" : "carpenter",
             "dates" : "January 234BC - Present",
             "location" : "SAN DIEGO",
-            "description" : "Can he build it?\n\
-yes he can!"
+            "description" : "Can he build it? YES HE CAN!"
         },
         {
             "employer" : "SANTA's HELPER",
@@ -67,7 +66,7 @@ yes he can!"
     ]
 };
 
-var projects = {
+var project = {
     "projects" : [
         {
             "title" : "JOSEPH's HAIRDO",
@@ -80,15 +79,6 @@ var projects = {
     ]
 };
 
-if (bio.skills.length > 0) {
-    
-    $("#header").append(HTMLskillsStart);
-       
-    for (x = 0; x < bio.skills.length; x++) {
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
-        $("#skills").append(formattedSkill);
-    }
-}
 function urMOM() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -109,7 +99,7 @@ function urMOM() {
     
     if (bio.skills.length > 0) {
     
-    $("#header").append(HTMLskillsStart);
+        $("#header").append(HTMLskillsStart);
        
         for (x = 0; x < bio.skills.length; x++) {
             var formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
@@ -120,24 +110,53 @@ function urMOM() {
     
     $("#footerContacts").append(formattedContactGeneric);
 }
+
+
 function displayWork() {
     for (job in work.jobs) {
-        $("$workExperience").append(HTMLworkStart);
+        $("#workExperience").append(HTMLworkStart);
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        var formattedDates = HTMLworkDates.replace("%data", work.jobs[job].dates);
+        var formattedDate = HTMLworkDates.replace("%data", work.jobs[job].dates);
         var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
-        var formattedworkthings = formattedEmployer + formattedTitle + formattedDates + formattedLocation + formattedDescription;
+        var formattedworkthings = formattedEmployer + formattedTitle + formattedDate + formattedLocation + formattedDescription;
 
-        $("#.work-entry:last").append(formattedworkthings);
+        $(".work-entry:last").append(formattedworkthings);
 
     }
 }
 
-//displayWork();
+urMOM();
+displayWork();
+
+project.display = function() {
+    
+    for (x in project.projects) {
+        $("#project").append(HTMLprojectStart);
+        
+        var formattedTitle = HTMLprojectTitle.replace("%data%", project.projects[x].title);
+        var formattedDate = HTMLprojectDates.replace("%data%", project.projects[x].date);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", project.projects[x].description);
+                
+        var formattedprojectthings = formattedTitle + formattedDate + formattedDescription;
+        $(".project-entry:last").append(formattedprojectthings);
+        
+        if (project.projects[x].images.length > 0) {
+    
+            for ( i in project.projects[x].images) {
+                var formattedImages = HTMLprojectImage.replace("%data%", project.projects[x].images[i]);
+                $(".project-entry:last").append(formattedImages);
+            }
+            
+        }
+
+    }
+};
+
+project.display();
 
 $(document).click(function(loc) {
     var x = loc.clientX;
@@ -147,8 +166,8 @@ $(document).click(function(loc) {
 
 });
 
-function inName(name) {
-    name = name.trim().split(" ");
+function inName() {
+    var name = bio.name.split(" ");
     console.log(name);
     name[name.length-1] = name[name.length-1].toUpperCase();
     name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
@@ -157,5 +176,6 @@ function inName(name) {
     return name[0] + " " + name[1];
 }
 
-console.log(inName(bio.name));
+inName(bio.name);
+$("#main").append(internationalizeButton);
         
