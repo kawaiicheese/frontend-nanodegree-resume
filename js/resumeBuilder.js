@@ -23,7 +23,7 @@ var education = {
     "schools" : [
         {
             "name": "STA",
-            "city": "OAKVILLE",
+            "location": "OAKVILLE",
             "degree" : "STA high school graduate",
             "majors": [
                 "CompSci",
@@ -54,7 +54,7 @@ var work = {
             "employer" : "BOB's BUILDERS",
             "title" : "carpenter",
             "dates" : "January 234BC - Present",
-            "location" : "SAN DIEGO",
+            "location" : "Toronto, Ontario, Canada",
             "description" : "Can he build it? YES HE CAN!"
         },
         {
@@ -145,20 +145,56 @@ projects.display = function() {
                 
                 var image = 0;
                 do {
-                    console.log("dfas")
+                    console.log("dfas");
                     var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[Project].images[image]);
                     $(".project-entry:last").append(formattedImage);
-                    image++
+                    image++;
                 } while (image < projects.projects[Project].images.length)
                     
 
 	}
+};
+
+education.display = function() {
+    
+    for (var Educations in education.schools) {
+            $("#education").append(HTMLschoolStart);
+
+            var formattedName = HTMLschoolName.replace("%data%", education.schools[Educations].name);
+            var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[Educations].degree);
+            var formattedDate = HTMLschoolDates.replace("%data%", education.schools[Educations].gradation);
+            var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[Educations].location);
+
+            $(".education-entry:last").append(formattedName + formattedDegree + formattedDate + formattedLocation);
+
+            var major = 0;
+            do {
+                console.log("dfas");
+                var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[Educations].majors[major]);
+                $(".education-entry:last").append(formattedMajor);
+                major++;
+            } while (major < education.schools[Educations].majors.length)
+
+
+
+    }
+
+    $(".education-entry:last").append(HTMLonlineClasses);		
+    for (var course in education.onlineCourses) {
+            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+            var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
+            var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+
+            $(".education-entry:last").append(formattedTitle + formattedSchool + formattedDate + formattedURL);
+    }
+		
 }
-        
 
 bio.display();
 work.display();
 projects.display();
+education.display();
 
 $(document).click(function(loc) {
     var x = loc.clientX;
@@ -169,7 +205,7 @@ $(document).click(function(loc) {
 });
 
 function inName() {
-    var name = bio.name.split(" ");
+    var name = bio.name.trim().split(" ");
     console.log(name);
     name[name.length-1] = name[name.length-1].toUpperCase();
     name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
@@ -180,3 +216,4 @@ function inName() {
 
 $("#main").append(internationalizeButton); 
         
+//$("#mapDiv").append(googleMap);
