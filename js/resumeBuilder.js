@@ -43,7 +43,8 @@ var education = {
             "title" : "funwithJoe",
             "school" : "JOSEKDP",
             "dates" : 4356,
-            "url" : "http://freefunnydogpictures.com/wp-content/uploads/2014/05/picture_1400053660.jpg"
+            "url" : "http://i.imgur.com/G2YpErL.jpg",
+            "img" : "http://i.imgur.com/G2YpErL.jpg"
         }
     ]
 };
@@ -185,7 +186,8 @@ education.display = function() {
             var formattedSchool = HTMLonlineSchool.replace("%data%", education.online_courses[course].school);
             var formattedDate = HTMLonlineDates.replace("%data%", education.online_courses[course].dates);
             var formattedURL = HTMLonlineURL.replace("%data%", education.online_courses[course].url);
-
+            var formattedImage = HTMLonlineImage.replace("%data%", education.online_courses[course].img);
+            
             $(".education-entry:last").append(formattedTitle + formattedSchool + formattedDate + formattedURL);
     }
 		
