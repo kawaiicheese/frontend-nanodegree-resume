@@ -15,7 +15,7 @@
 h1 {
 
   font-size: 40px;
-  color: #F5A623;
+  color: #c12d2d;
   line-height: 48px;
   display: inline;
 }
@@ -23,7 +23,7 @@ h1 {
 h2 {
   font-style: bold;
   font-size: 24px;
-  color: #999999;
+  color: #c9a54d;
   line-height: 29px;
   padding: 10px;
 }
@@ -31,14 +31,14 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000000;
+  color: #a9a152;
   line-height: 22px;
 }
 
 h4 {
   font-style: bold;
   font-size: 14px;
-  color: #4A4A4A;
+  color: #ffff00;
   line-height: 17px;
 }
 
@@ -52,7 +52,7 @@ h2, h3, h4, h5 {
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #c9a54d;
   line-height: 16px;
   float: left;
 }
@@ -60,7 +60,7 @@ h2, h3, h4, h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #c9a54d;
   line-height: 16px;
   float: right;
 
@@ -68,12 +68,12 @@ h2, h3, h4, h5 {
 
 p {
   font-size: 14px;
-  color: #333333;
+  color: #e8ffad;
   line-height: 21px;
 }
 
 a {
-  color: #1199C3;
+    color: #abf5a1;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -82,12 +82,12 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #a9a152;
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #c9a54d;
   display: none;
 }
 
@@ -96,31 +96,31 @@ a {
 }
 
 .orange {
-  background-color: #F5AE23;
+  background-color: #c12d2d;
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: #c12d2d;
 }
 
 .white-text {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #b65050;
 }
 
 .gray {
-  background-color: #F3F3F3;
+  background-color: #b65050;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background-color: #c9a54d;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #a9a152;
 }
 
 .flex-box {
@@ -156,7 +156,7 @@ img {
 /* Bar chart stuff */
 .chart div {
   font: 10px sans-serif;
-  background-color: #4A4A4A;
+  background-color: #c9a54d;
   text-align: right;
   padding: 3px;
   margin: 1px;
@@ -175,6 +175,7 @@ span {
 
 @media only screen and (max-width: 1024px) {
   #letsConnect {
+    background-color: #a9a152;
     margin-top: 5%;
   }
 }
