@@ -7,7 +7,7 @@ var bio = {
         "github": "kawaiicheese",
         "twitter": "meganecheese",
         "blog": "fhjdksal",
-        "location": "CANADA"
+        "location": "Oakville"
     },
     
     "picture_URL": "http://freefunnydogpictures.com/wp-content/uploads/2014/05/picture_1400053660.jpg",
