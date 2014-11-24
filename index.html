@@ -63,8 +63,22 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <div id="projects">
       <h2>Projects</h2>
     </div>
-    <div id="education" class='gray'>
+    <div id="education" class="gray">
       <h2>Education</h2>
+      <!--<div class="education-entry">
+          <a href="#">STA -- STA high school graduate</a>
+          <div class="date-text">undefined</div>
+          <div class="location-text">OAKVILLE</div>
+          <em><br>Major: CompSci</em>
+          <em><br>Major: Math</em>
+          <h3>Online Classes</h3>
+          <a href="#">funwithJoe - JOSEKDP</a>
+          <div class="date-text">4356</div>
+          <br>
+          <a href="#"><img src="http://i.imgur.com/G2YpErL.jpg"></a>
+          <br>
+
+      </div>-->
     </div>
     <div id="skillsChart">
       <h2>Skills Chart</h2>
@@ -122,7 +136,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   if(document.getElementsByClassName("project-entry").length === 0) {
     document.getElementById("projects").style.display = "none";
   }
-  if(document.getElementsByClassName("education-entry").length === 0) {
+  if(document.getElementsByClassName("education-entry").length === 2) {
+    document.getELementsByClassName("education-entry").slice[0];
     document.getElementById("education").style.display = "none";
   }
   if(document.getElementsByClassName("skills-entry").length === 0) {
@@ -131,7 +146,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   if(document.getElementsByClassName("flex-item").length === 0) {
     document.getElementById("letsConnect").style.display = "none";
   }
-  if(document.getElementById("map") == undefined) {
+  if(document.getElementById("map") === undefined) {
     document.getElementById("mapDiv").style.display = "none";
   }
   </script>
