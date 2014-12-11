@@ -1,16 +1,16 @@
 var bio = {
     "name" : "Joseph Lu",
-    "role": "Engineer",
+    "role": "Student",
     "contacts": {
         "phone": "905-847-8392",
         "email": "josephlu_116@hotmail.com",
         "github": "kawaiicheese",
         "twitter": "meganecheese",
-        "blog": "fhjdksal",
+        "blog": "no blog",
         "location": "Oakville"
     },
     
-    "picture_URL": "http://freefunnydogpictures.com/wp-content/uploads/2014/05/picture_1400053660.jpg",
+    "picture_URL": "http://i.gyazo.com/1a6c0eda40465329f82a49f4b41dfb2f.png",
     "welcomeMessage": "hello moto",
     "skills": [
         "greatness",
@@ -26,25 +26,22 @@ var education = {
             "location": "OAKVILLE",
             "degree" : "STA high school graduate",
             "majors": [
-                "CompSci",
-                "Math"
+                "none"
             ],
             "minor": [
-                "physical sciences",
-                "Accounting"
+                "none"
             ],
-            "graduation": "1998",
-            "online info": "https://www.udacity.com/nanodegrees"
+            "graduation": "2015",
+            "online_info": "http://sta.hcdsb.org/"
         }
     ],
     
     "online_courses" : [
         {
-            "title" : "funwithJoe",
-            "school" : "JOSEKDP",
-            "dates" : 4356,
-            "url" : "http://i.imgur.com/G2YpErL.jpg",
-            "img" : "http://i.imgur.com/G2YpErL.jpg"
+            "title" : "Javascript Basics",
+            "school" : "Udacity Nanodegree",
+            "dates" : "2014",
+            "url" : "https://www.udacity.com/course/ud804",
         }
     ]
 };
@@ -52,18 +49,11 @@ var education = {
 var work = {
     "jobs": [
         {
-            "employer" : "BOB's BUILDERS",
-            "title" : "carpenter",
-            "dates" : "January 234BC - Present",
-            "location" : "Toronto, Ontario, Canada",
-            "description" : "Can he build it? YES HE CAN!"
-        },
-        {
-            "employer" : "SANTA's HELPER",
-            "title" : "elf",
-            "dates" : "234 - Future",
-            "location" : "NORTH POLE",
-            "description" : "HO HO HO ! MERRY CHRISTMAS"
+            "employer" : "none",
+            "title" : "none",
+            "dates" : "none",
+            "location" : "Ontario",
+            "description" : "none"
         }
     ]
 };
@@ -71,11 +61,11 @@ var work = {
 var projects = {
     "projects" : [
         {
-            "title" : "JOSEPH's HAIRDO",
-            "dates" : "2031",
-            "description" : "IM A DONUT",
+            "title" : "Sudoku",
+            "dates" : "2015",
+            "description" : "describe the sudoku",
             "images" : [
-                "http://freedogpics.com/wp-content/uploads/2014/08/pictures_1407299643.jpg"
+                "http://i.gyazo.com/8fbb83bfc0d414b3268fb24bd3a33989.png"
             ]
         }
     ]
@@ -161,7 +151,7 @@ education.display = function() {
     for (var Educations in education.schools) {
             $("#education").append(HTMLschoolStart);
 
-            var formattedName = HTMLschoolName.replace("%data%", education.schools[Educations].name);
+            var formattedName = HTMLschoolName.replace("%data%", education.schools[Educations].name).replace("#", education.schools[Educations].online_info);
             var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[Educations].degree);
             var formattedDate = HTMLschoolDates.replace("%data%", education.schools[Educations].gradation);
             var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[Educations].location);
@@ -182,13 +172,11 @@ education.display = function() {
 
     $(".education-entry:last").append(HTMLonlineClasses);		
     for (var course in education.online_courses) {
-            var formattedTitle = HTMLonlineTitle.replace("%data%", education.online_courses[course].title);
-            var formattedSchool = HTMLonlineSchool.replace("%data%", education.online_courses[course].school);
+            var formattedTitle = HTMLonlineTitle.replace(/%data%/g, education.online_courses[course].title);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", education.online_courses[course].school).replace("#", education.online_courses[course].url);
             var formattedDate = HTMLonlineDates.replace("%data%", education.online_courses[course].dates);
-            var formattedURL = HTMLonlineURL.replace("%data%", education.online_courses[course].url);
-            var formattedImage = HTMLonlineImage.replace("%data%", education.online_courses[course].img);
-            
-            $(".education-entry:last").append(formattedTitle + formattedSchool + formattedDate + formattedURL);
+            var formattedURL = HTMLonlineURL.replace("%data%", education.online_courses[course].url);            
+            $(".education-entry:last").append(formattedTitle + formattedSchool + formattedDate + formattedURL)
     }
 		
 };
@@ -216,6 +204,6 @@ function inName() {
     return name[0] + " " + name[1];
 }
 
-$("#main").append(internationalizeButton); 
+$("#main").append("<center>" + internationalizeButton + "</center>"); 
         
 $("#mapDiv").append(googleMap);
